@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body * {
+  font-family: "Bitcount Grid Double", system-ui;
+  line-height: 150%;
+}
+
+body {
+  background-image: url('./assets/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: top center;
+  background-color: #121214;
+  color: white;
+}
+
+header {
+  /* 1 rem = 16px */
+  padding-top: 2rem;
+  text-align: center;
+}
+
+main {
+  max-width: 36rem;
+  width: 90%;
+  margin: 3rem;
+}
+
+section {
+  background-image: linear-gradient(90deg, #9572fc 0%, #43e7ad 50%, #e2d45c 100%);
+}
