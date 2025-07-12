@@ -20,8 +20,36 @@
 
   <main>
     <section>
-      <h2>Assistente IA de jogos</h2>
-      <p>Pergunte sobre estratégias, dicas e build para seus jogos.</p>
+      <div>
+        <h2>Assistente IA de jogos</h2>
+        <p>Pergunte sobre estratégias, dicas e build para seus jogos.</p>
+
+        <form>
+          <input type="password" placeholder="Informe a API KEY do Gemini" required />
+
+          <select>
+            <option value="">Selecione um jogo</option>
+            <option value="valorant">Valorant</option>
+            <option value="lol">League of Legends</option>
+            <option value="csgo">CS GO</option>
+            <option value="residentEvil">Resident Evil</option>
+            <option value="callOfDuty">Call of Duty</option>
+            <option value="needForSpeed">Need for Speed</option>
+            <option value="gta">GTA</option>
+          </select>
+
+          <input type="text" placeholder="Acrescente mais informações" required />
+
+          <button>Perguntar</button>
+
+          <div id="aiResponse">
+            <div class="response-content">
+
+            </div>
+          </div>
+
+        </form>
+      </div>
     </section>
   </main>
 
