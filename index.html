@@ -24,10 +24,10 @@
         <h2>Assistente IA de jogos</h2>
         <p>Pergunte sobre estratégias, dicas e build para seus jogos.</p>
 
-        <form>
-          <input type="password" placeholder="Informe a API KEY do Gemini" required />
+        <form id="form">
+          <input id="apiKey" type="password" placeholder="Informe a API KEY do Gemini" required />
 
-          <select>
+          <select id="gameSelect">
             <option value="">Selecione um jogo</option>
             <option value="valorant">Valorant</option>
             <option value="lol">League of Legends</option>
@@ -38,9 +38,9 @@
             <option value="gta">GTA</option>
           </select>
 
-          <input type="text" placeholder="Acrescente mais informações" required />
+          <input id="questionInput" type="text" placeholder="Acrescente mais informações" required />
 
-          <button>Perguntar</button>
+          <button id="askButton">Perguntar</button>
 
           <div id="aiResponse">
             <div class="response-content">
@@ -53,6 +53,7 @@
     </section>
   </main>
 
+  <script src="./script.js"></script>
 </body>
 
 </html>
