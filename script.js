@@ -1,15 +1,10 @@
 // Pegando os brinquedos da caixa
-const form = document.getElementById('form');
-
-const apiKeyInput = document.getElementById('apiKey');
-
-const gameSelect = document.getElementById('gameSelect');
-
-const questionInput = document.getElementById('questionInput');
-
-const askButton = document.getElementById('askButton');
-
-const aiResponse = document.getElementById('aiResponse');
+const form = document.getElementById('form')
+const apiKeyInput = document.getElementById('apiKey')
+const gameSelect = document.getElementById('gameSelect')
+const questionInput = document.getElementById('questionInput')
+const askButton = document.getElementById('askButton')
+const aiResponse = document.getElementById('aiResponse')
 
 // O tradutor mágico
 const markdownToHTML = (text) => {
@@ -18,10 +13,10 @@ const markdownToHTML = (text) => {
 }
 
 // A receita para falar com o gênio da lâmpada (IA)
-const askAi = async (question, game, apiKey) => {
-  const model = "gemini-2.0-flash"
-  const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
-  const ask = `
+const askAI = async (question, game, apiKey) => {
+  const model = "gemini-2.5-flash"
+  const geminiURL = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`
+  const pergunta = `
     ## Especialidade
     Você é um especialista assistente de meta para o jogo ${game}
 
@@ -51,19 +46,19 @@ const askAi = async (question, game, apiKey) => {
   const contents = [{
     role: "user",
     parts: [{
-      text: ask
+      text: pergunta
     }]
   }]
 
   const tools = [{
-    google_Search: {}
+    google_search: {}
   }]
 
-  // Chamada API
-  const response = await fetch(geminiUrl, {
+  // chamada API
+  const response = await fetch(geminiURL, {
     method: 'POST',
     headers: {
-      'Content-type': 'aplication/json'
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       contents,
@@ -74,6 +69,7 @@ const askAi = async (question, game, apiKey) => {
   const data = await response.json()
   return data.candidates[0].content.parts[0].text
 }
+
 
 // O gerente da brincadeira
 const sendForm = async (event) => {
@@ -92,8 +88,8 @@ const sendForm = async (event) => {
   askButton.classList.add('loading')
 
   try {
-    const text = await askAi(question, game, apiKey)
-    aiResponse.querySelector('.response-content').innerHTML = markdownToHtml(text)
+    const text = await askAI(question, game, apiKey)
+    aiResponse.querySelector('.response-content').innerHTML = markdownToHTML(text)
     aiResponse.classList.remove('hidden')
   } catch (error) {
     console.log('Erro: ', error)
